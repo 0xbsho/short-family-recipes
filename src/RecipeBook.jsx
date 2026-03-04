@@ -1,0 +1,532 @@
+import { useState, useMemo } from "react";
+
+const recipes = [
+  {
+    id: 1,
+    name: "Creamy Chicken Tortilla Soup",
+    source: "Half Baked Harvest",
+    time: "50 min",
+    tags: ["Soup", "Chicken", "Mexican"],
+    url: "https://www.halfbakedharvest.com/creamy-chicken-tortilla-soup/",
+    color: "#E8D5B7",
+    accent: "#C4956A",
+    initials: "CTS",
+    image: "https://www.halfbakedharvest.com/wp-content/uploads/2024/01/HBH-Creamy-Green-Chili-Chicken-Tortilla-Soup-1-1.jpg",
+  },
+  {
+    id: 2,
+    name: "Foolproof Cacio e Pepe",
+    source: "Smitten Kitchen",
+    time: "20 min",
+    tags: ["Pasta", "Vegetarian", "Quick"],
+    url: "https://smittenkitchen.com/2018/09/foolproof-cacio-e-pepe/",
+    color: "#F5E6CC",
+    accent: "#B8A080",
+    initials: "CeP",
+    image: "https://smittenkitchendotcom.files.wordpress.com/2018/09/foolproof-cacio-e-pepe.jpg?w=750",
+  },
+  {
+    id: 3,
+    name: "Corn & Chipotle Chicken Tortilla Bake",
+    source: "Half Baked Harvest",
+    time: "45 min",
+    tags: ["Chicken", "Mexican", "Skillet"],
+    url: "https://www.halfbakedharvest.com/corn-and-chipotle-chicken-tortilla-bake/",
+    color: "#F0DFC8",
+    accent: "#C89060",
+    initials: "CTB",
+    image: "https://www.halfbakedharvest.com/wp-content/uploads/2023/09/Skillet-Corn-and-Chipotle-Chicken-Tortilla-Bake-1.jpg",
+  },
+  {
+    id: 4,
+    name: "Hot Honey Garlic Chicken & Zucchini",
+    source: "Half Baked Harvest",
+    time: "30 min",
+    tags: ["Chicken", "Sheet Pan", "Quick"],
+    url: "https://www.halfbakedharvest.com/hot-honey-garlic-chicken/",
+    color: "#FBE8C8",
+    accent: "#D4944C",
+    initials: "HHC",
+    image: "https://www.halfbakedharvest.com/wp-content/uploads/2023/07/Sheet-Pan-Hot-Honey-Garlic-Chicken-and-Zucchini-1.jpg",
+  },
+  {
+    id: 5,
+    name: "Sweet Potato Coconut Milk Stew",
+    source: "The First Mess",
+    time: "1 hr",
+    tags: ["Vegan", "Soup", "Sweet Potato"],
+    url: "https://thefirstmess.com/2020/02/19/sweet-potato-coconut-milk-stew/",
+    color: "#F4D9BE",
+    accent: "#D08850",
+    initials: "SPS",
+    image: "https://thefirstmess.com/wp-content/uploads/2020/02/ginger-sweet-potato-coconut-stew-w-kale-lentils-3.jpg",
+  },
+  {
+    id: 6,
+    name: "BBQ Chicken Bowls",
+    source: "40 Aprons",
+    time: "1 hr 15 min",
+    tags: ["Bowls", "Chicken", "Sweet Potato"],
+    url: "https://40aprons.com/bbq-chicken-bowls-with-sweet-potatoes-and-coleslaw-whole30/",
+    color: "#E5D4C0",
+    accent: "#A88860",
+    initials: "BBQ",
+    image: "https://40aprons.com/wp-content/uploads/2019/01/whole30-bbq-chicken-bowls-4.jpg",
+  },
+  {
+    id: 7,
+    name: "Chicken Bacon Ranch Bowls",
+    source: "The Defined Dish",
+    time: "35 min",
+    tags: ["Bowls", "Chicken", "Quick"],
+    url: "https://thedefineddish.com/chicken-bacon-ranch-bowls/",
+    color: "#EDE0D0",
+    accent: "#A09070",
+    initials: "CBR",
+    image: "https://thedefineddish.com/wp-content/uploads/2018/12/ChickenBaconRanchBowls.jpg",
+  },
+  {
+    id: 8,
+    name: "Greek Rotisserie Chicken Bowls",
+    source: "The Defined Dish",
+    time: "30 min",
+    tags: ["Bowls", "Chicken", "Quick"],
+    url: "https://thedefineddish.com/easy-greek-inspired-rotisserie-chicken-bowls/",
+    color: "#D8E4D2",
+    accent: "#7A9968",
+    initials: "GCB",
+    image: "https://thedefineddish.com/wp-content/uploads/2020/02/GreekRotisserieChickenBowls.jpg",
+  },
+  {
+    id: 9,
+    name: "Ground Turkey Skillet with Sweet Potatoes",
+    source: "Skinnytaste",
+    time: "30 min",
+    tags: ["Skillet", "Turkey", "Sweet Potato", "Quick"],
+    url: "https://www.skinnytaste.com/ground-turkey-skillet-with-sweet-potatoes-and-black-bean/",
+    color: "#F0E0C8",
+    accent: "#C09058",
+    initials: "GTS",
+    image: "https://www.skinnytaste.com/wp-content/uploads/2020/02/Ground-Turkey-Sweet-Potato-Skillet-5.jpg",
+  },
+];
+
+const allTags = [...new Set(recipes.flatMap((r) => r.tags))].sort();
+
+export default function RecipeBook() {
+  const [search, setSearch] = useState("");
+  const [activeTags, setActiveTags] = useState([]);
+
+  const toggleTag = (tag) => {
+    setActiveTags((prev) =>
+      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
+    );
+  };
+
+  const filtered = useMemo(() => {
+    return recipes.filter((r) => {
+      const matchesSearch =
+        search === "" ||
+        r.name.toLowerCase().includes(search.toLowerCase()) ||
+        r.source.toLowerCase().includes(search.toLowerCase());
+      const matchesTags =
+        activeTags.length === 0 ||
+        activeTags.some((tag) => r.tags.includes(tag));
+      return matchesSearch && matchesTags;
+    });
+  }, [search, activeTags]);
+
+  return (
+    <div style={styles.page}>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+        
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        
+        ::selection {
+          background: #C8B08C;
+          color: white;
+        }
+        
+        .recipe-card {
+          background: white;
+          border-radius: 16px;
+          overflow: hidden;
+          transition: transform 0.25s ease, box-shadow 0.25s ease;
+          cursor: pointer;
+          text-decoration: none;
+          color: inherit;
+          display: flex;
+          flex-direction: column;
+          border: 1px solid #F0EBE3;
+        }
+        
+        .recipe-card:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 12px 40px rgba(120, 100, 70, 0.12);
+        }
+        
+        .tag-btn {
+          padding: 6px 14px;
+          border-radius: 100px;
+          border: 1.5px solid #E0D8CC;
+          background: transparent;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 13px;
+          font-weight: 500;
+          color: #8A7D6B;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          white-space: nowrap;
+        }
+        
+        .tag-btn:hover {
+          border-color: #C8B08C;
+          color: #6B5D4D;
+        }
+        
+        .tag-btn.active {
+          background: #3D3225;
+          border-color: #3D3225;
+          color: white;
+        }
+        
+        .search-input {
+          width: 100%;
+          padding: 12px 16px 12px 44px;
+          border: 1.5px solid #E0D8CC;
+          border-radius: 12px;
+          font-family: 'DM Sans', sans-serif;
+          font-size: 15px;
+          color: #3D3225;
+          background: white;
+          outline: none;
+          transition: border-color 0.2s ease;
+        }
+        
+        .search-input:focus {
+          border-color: #C8B08C;
+        }
+        
+        .search-input::placeholder {
+          color: #B8AE9E;
+        }
+        
+        .img-placeholder {
+          width: 100%;
+          height: 200px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+        }
+
+        .recipe-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 24px;
+        }
+        
+        @media (max-width: 680px) {
+          .recipe-grid {
+            grid-template-columns: 1fr;
+            gap: 16px;
+          }
+        }
+      `}</style>
+
+      {/* Header */}
+      <header style={styles.header}>
+        <div style={styles.headerInner}>
+          <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
+            <h1 style={styles.title}>Our Favorite Recipes</h1>
+            <span style={styles.count}>{recipes.length}</span>
+          </div>
+          <p style={styles.subtitle}>
+            Britt and Brendan's go-to meals that we keep coming back to.
+            Put the screens away and enjoy a meal with friends, family, or solo! 🤍
+          </p>
+        </div>
+      </header>
+
+      {/* Controls */}
+      <div style={styles.controls}>
+        {/* Search */}
+        <div style={{ position: "relative", maxWidth: 400 }}>
+          <svg
+            style={{
+              position: "absolute",
+              left: 14,
+              top: "50%",
+              transform: "translateY(-50%)",
+              width: 18,
+              height: 18,
+              color: "#B8AE9E",
+            }}
+            fill="none"
+            stroke="currentColor"
+            strokeWidth={2}
+            viewBox="0 0 24 24"
+          >
+            <circle cx={11} cy={11} r={8} />
+            <path d="M21 21l-4.35-4.35" strokeLinecap="round" />
+          </svg>
+          <input
+            className="search-input"
+            type="text"
+            placeholder="Search recipes or sources..."
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+        </div>
+
+        {/* Tags */}
+        <div
+          style={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: 8,
+            marginTop: 12,
+          }}
+        >
+          {allTags.map((tag) => (
+            <button
+              key={tag}
+              className={`tag-btn ${activeTags.includes(tag) ? "active" : ""}`}
+              onClick={() => toggleTag(tag)}
+            >
+              {tag}
+            </button>
+          ))}
+          {activeTags.length > 0 && (
+            <button
+              className="tag-btn"
+              onClick={() => setActiveTags([])}
+              style={{ color: "#C8846B", borderColor: "#C8846B" }}
+            >
+              Clear all
+            </button>
+          )}
+        </div>
+      </div>
+
+      {/* Recipe Grid */}
+      <div style={styles.content}>
+        {filtered.length === 0 ? (
+          <div style={styles.empty}>
+            <span style={{ fontSize: 40 }}>🍽️</span>
+            <p style={{ color: "#8A7D6B", fontFamily: "'DM Sans', sans-serif", marginTop: 12 }}>
+              No recipes match your filters.
+            </p>
+          </div>
+        ) : (
+          <div className="recipe-grid">
+            {filtered.map((recipe) => (
+              <a
+                key={recipe.id}
+                className="recipe-card"
+                href={recipe.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <div
+                  className="img-placeholder"
+                  style={{ backgroundColor: recipe.color }}
+                >
+                  <img
+                    src={recipe.image}
+                    alt={recipe.name}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      position: "absolute",
+                      top: 0,
+                      left: 0,
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = "none";
+                      e.target.nextSibling.style.display = "flex";
+                    }}
+                  />
+                  <div style={{
+                    display: "none",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    gap: 4,
+                  }}>
+                    <span style={{
+                      fontFamily: "'DM Serif Display', serif",
+                      fontSize: 36,
+                      fontWeight: 400,
+                      color: recipe.accent,
+                      opacity: 0.6,
+                      letterSpacing: "0.05em",
+                    }}>{recipe.initials}</span>
+                    <span style={{
+                      fontSize: 10,
+                      fontWeight: 600,
+                      color: recipe.accent,
+                      opacity: 0.4,
+                      textTransform: "uppercase",
+                      letterSpacing: "0.1em",
+                      fontFamily: "'DM Sans', sans-serif",
+                    }}>view recipe →</span>
+                  </div>
+                </div>
+                <div style={styles.cardBody}>
+                  <div style={styles.cardMeta}>
+                    <span style={styles.sourceLabel}>{recipe.source}</span>
+                    <span style={styles.timeLabel}>
+                      <svg
+                        width="14"
+                        height="14"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        style={{ marginRight: 4, flexShrink: 0 }}
+                      >
+                        <circle cx={12} cy={12} r={10} />
+                        <path d="M12 6v6l4 2" strokeLinecap="round" />
+                      </svg>
+                      {recipe.time}
+                    </span>
+                  </div>
+                  <h3 style={styles.cardTitle}>{recipe.name}</h3>
+                  <div style={styles.cardTags}>
+                    {recipe.tags.map((tag) => (
+                      <span key={tag} style={styles.cardTag}>
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Footer */}
+      <footer style={styles.footer}>
+        <p>Made with 🤍 From our family's table in Austin, to wherever yours is</p>
+      </footer>
+    </div>
+  );
+}
+
+const styles = {
+  page: {
+    minHeight: "100vh",
+    background: "#FAF7F2",
+    fontFamily: "'DM Sans', sans-serif",
+  },
+  header: {
+    padding: "48px 24px 32px",
+    borderBottom: "1px solid #EDE6D9",
+  },
+  headerInner: {
+    maxWidth: 1100,
+    margin: "0 auto",
+  },
+  title: {
+    fontFamily: "'DM Serif Display', serif",
+    fontSize: 36,
+    fontWeight: 400,
+    color: "#2A2118",
+    letterSpacing: "-0.02em",
+  },
+  count: {
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: 14,
+    fontWeight: 500,
+    color: "#B8AE9E",
+    background: "#EDE6D9",
+    padding: "2px 10px",
+    borderRadius: 100,
+  },
+  subtitle: {
+    fontFamily: "'DM Sans', sans-serif",
+    fontSize: 14,
+    color: "#8A7D6B",
+    marginTop: 4,
+    lineHeight: 1.5,
+  },
+  controls: {
+    maxWidth: 1100,
+    margin: "0 auto",
+    padding: "24px 24px 0",
+  },
+  content: {
+    maxWidth: 1100,
+    margin: "0 auto",
+    padding: "24px 24px 48px",
+  },
+  empty: {
+    textAlign: "center",
+    padding: "60px 20px",
+  },
+  cardBody: {
+    padding: "16px 20px 20px",
+    flex: 1,
+    display: "flex",
+    flexDirection: "column",
+  },
+  cardMeta: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 8,
+  },
+  sourceLabel: {
+    fontSize: 12,
+    fontWeight: 600,
+    color: "#B8AE9E",
+    textTransform: "uppercase",
+    letterSpacing: "0.06em",
+  },
+  timeLabel: {
+    fontSize: 13,
+    color: "#8A7D6B",
+    display: "flex",
+    alignItems: "center",
+  },
+  cardTitle: {
+    fontFamily: "'DM Serif Display', serif",
+    fontSize: 19,
+    fontWeight: 400,
+    color: "#2A2118",
+    lineHeight: 1.3,
+    marginBottom: 12,
+  },
+  cardTags: {
+    display: "flex",
+    flexWrap: "wrap",
+    gap: 6,
+    marginTop: "auto",
+  },
+  cardTag: {
+    fontSize: 11,
+    fontWeight: 500,
+    color: "#8A7D6B",
+    background: "#F5F0E8",
+    padding: "3px 10px",
+    borderRadius: 100,
+  },
+  footer: {
+    textAlign: "center",
+    padding: "24px",
+    borderTop: "1px solid #EDE6D9",
+    fontSize: 13,
+    color: "#B8AE9E",
+    fontFamily: "'DM Sans', sans-serif",
+  },
+};

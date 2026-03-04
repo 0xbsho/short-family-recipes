@@ -11,6 +11,7 @@ const recipes = [
     color: "#E8D5B7",
     accent: "#C4956A",
     initials: "CTS",
+    rating: 4.5,
     image: "https://www.halfbakedharvest.com/wp-content/uploads/2023/11/Creamy-Chicken-Tortilla-Soup-1.jpg",
   },
   {
@@ -23,6 +24,7 @@ const recipes = [
     color: "#F5E6CC",
     accent: "#B8A080",
     initials: "CeP",
+    rating: 4,
     image: "https://smittenkitchendotcom.files.wordpress.com/2018/09/foolproof-cacio-e-pepe.jpg?w=750",
   },
   {
@@ -35,6 +37,7 @@ const recipes = [
     color: "#F0DFC8",
     accent: "#C89060",
     initials: "CTB",
+    rating: 4.5,
     image: "https://www.halfbakedharvest.com/wp-content/uploads/2023/08/Skillet-Corn-and-Chipotle-Chicken-Tortilla-Bake-1.jpg",
   },
   {
@@ -47,6 +50,7 @@ const recipes = [
     color: "#FBE8C8",
     accent: "#D4944C",
     initials: "HHC",
+    rating: 4,
     image: "https://www.halfbakedharvest.com/wp-content/uploads/2023/08/Sheet-Pan-Hot-Honey-Garlic-Chicken-and-Zucchini-1.jpg",
   },
   {
@@ -59,6 +63,7 @@ const recipes = [
     color: "#F4D9BE",
     accent: "#D08850",
     initials: "SPS",
+    rating: 5,
     image: "https://thefirstmess.com/wp-content/uploads/2020/02/18-11996-post/ginger-sweet-potato-coconut-stew-w-kale-lentils-6.jpg",
   },
   {
@@ -71,6 +76,7 @@ const recipes = [
     color: "#E5D4C0",
     accent: "#A88860",
     initials: "BBQ",
+    rating: 5,
     image: "https://40aprons.com/wp-content/uploads/2020/01/bbq-chicken-bowls-whole30-5-1.jpg",
   },
   {
@@ -83,6 +89,7 @@ const recipes = [
     color: "#EDE0D0",
     accent: "#A09070",
     initials: "CBR",
+    rating: 5,
     image: "https://thedefineddish.com/wp-content/uploads/2018/07/IMG_7406.jpg",
   },
   {
@@ -95,6 +102,7 @@ const recipes = [
     color: "#D8E4D2",
     accent: "#7A9968",
     initials: "GCB",
+    rating: 4.5,
     image: "https://thedefineddish.com/wp-content/uploads/2021/04/2021-04-15-01.12.12.jpg",
   },
   {
@@ -107,6 +115,7 @@ const recipes = [
     color: "#F0E0C8",
     accent: "#C09058",
     initials: "GTS",
+    rating: 4,
     image: "https://www.skinnytaste.com/wp-content/uploads/2023/01/Ground-Turkey-Skillet-with-Sweet-Potatoes-and-Black-Beans-7.jpg",
   },
   {
@@ -119,6 +128,7 @@ const recipes = [
     color: "#F5E0C0",
     accent: "#D49040",
     initials: "TN",
+    rating: 4,
     image: "https://www.skinnytaste.com/wp-content/uploads/2017/02/Mini-Bell-Pepper-Loaded-Turkey-%E2%80%9CNachos-1-3.jpg",
   },
   {
@@ -131,6 +141,7 @@ const recipes = [
     color: "#D8E8D0",
     accent: "#6A9958",
     initials: "CCS",
+    rating: 4,
     image: "https://hips.hearstapps.com/hmg-prod/images/crunchy-mandarin-orange-chicken-salad-index-66677b26de543.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*",
   },
   {
@@ -143,6 +154,7 @@ const recipes = [
     color: "#F8E4D0",
     accent: "#D48050",
     initials: "ST",
+    rating: 4,
     image: "https://pinchofyum.com/tachyon/Salmon-Tacos-Square.png",
   },
   {
@@ -155,6 +167,7 @@ const recipes = [
     color: "#E8D0C0",
     accent: "#B07050",
     initials: "MSS",
+    rating: 4.5,
     image: "https://www.skinnytaste.com/wp-content/uploads/2016/11/Maple-Soy-Glazed-Salmon.jpg",
   },
   {
@@ -167,6 +180,7 @@ const recipes = [
     color: "#D4DEC8",
     accent: "#7A8E60",
     initials: "SB",
+    rating: 4,
     image: "https://thedefineddish.com/wp-content/uploads/2019/09/2019-09-17-02.47.37-2.jpg",
   },
   {
@@ -179,6 +193,7 @@ const recipes = [
     color: "#F0D8C4",
     accent: "#C87848",
     initials: "BLT",
+    rating: 4,
     image: "https://www.halfbakedharvest.com/wp-content/uploads/2014/08/untitled-16.jpg",
   },
   {
@@ -191,6 +206,7 @@ const recipes = [
     color: "#F5E8D0",
     accent: "#C8A060",
     initials: "BTT",
+    rating: 4.5,
     image: "https://thedefineddish.com/wp-content/uploads/2019/08/2019-08-06-02.02.41-2.jpg",
   },
   {
@@ -203,6 +219,7 @@ const recipes = [
     color: "#DCE8CC",
     accent: "#8AAC60",
     initials: "SAP",
+    rating: 5,
     image: "https://i0.wp.com/smittenkitchen.com/wp-content/uploads//2010/05/shaved-asparagus-pizza.jpg?fit=750%2C500&ssl=1",
   },
   {
@@ -215,6 +232,7 @@ const recipes = [
     color: "#F0D4C0",
     accent: "#C07040",
     initials: "HCC",
+    rating: 4,
     image: "https://reciperunner.com/wp-content/uploads/2022/08/honey-chipotle-chicken-rice-bowls-4-scaled.jpg",
   },
   {
@@ -227,6 +245,7 @@ const recipes = [
     color: "#E0E4C8",
     accent: "#9AA060",
     initials: "MQS",
+    rating: 4,
     image: "https://skinnyms.com/wp-content/uploads/2016/04/6-Ingredient-Mexican-Style-Quinoa-Salad3.jpg",
   },
   {
@@ -239,6 +258,7 @@ const recipes = [
     color: "#F5D0C0",
     accent: "#C86048",
     initials: "BFP",
+    rating: 4,
     image: "https://grilledcheesesocial.com/wp-content/uploads/2019/06/baked-feta-pasta-tomatoes-grilled-cheese-social-6.jpg",
   },
   {
@@ -251,6 +271,7 @@ const recipes = [
     color: "#D8E8D8",
     accent: "#6A9870",
     initials: "SLC",
+    rating: 4,
     image: "https://thedefineddish.com/wp-content/uploads/2019/12/2019-12-16-00.00.04.jpg",
   },
   {
@@ -263,6 +284,7 @@ const recipes = [
     color: "#E8D8C0",
     accent: "#A88050",
     initials: "DOC",
+    rating: 5,
     image: "https://wellfedbaker.com/wp-content/uploads/2024/04/dutch-oven-carnitas-11.jpg",
   },
   {
@@ -275,6 +297,7 @@ const recipes = [
     color: "#F0E0C4",
     accent: "#C09040",
     initials: "HSC",
+    rating: 4,
     image: "https://amandacooksandstyles.com/wp-content/uploads/2021/05/20210504_172500-3.jpg",
   },
   {
@@ -287,6 +310,7 @@ const recipes = [
     color: "#F5E4CC",
     accent: "#C8A060",
     initials: "BCT",
+    rating: 4,
     image: "https://www.cookingclassy.com/wp-content/uploads/2021/10/baked-chicken-tenders-5.jpg",
   },
   {
@@ -299,6 +323,7 @@ const recipes = [
     color: "#F8E0D0",
     accent: "#D08858",
     initials: "BBS",
+    rating: 4,
     image: "https://40aprons.com/wp-content/uploads/2018/03/whole30-bang-bang-shrimp-paleo-2.jpg",
   },
   {
@@ -311,6 +336,7 @@ const recipes = [
     color: "#E8D4C0",
     accent: "#B08050",
     initials: "SSB",
+    rating: 4.5,
     image: "https://www.paleorunningmomma.com/wp-content/uploads/2020/01/bolognese6.jpg",
   },
   {
@@ -323,6 +349,7 @@ const recipes = [
     color: "#F0E4C8",
     accent: "#C8A450",
     initials: "CSC",
+    rating: 4,
     image: "https://www.jocooks.com/wp-content/uploads/2019/07/coconut-shrimp-curry-1-3.jpg",
   },
   {
@@ -335,6 +362,7 @@ const recipes = [
     color: "#E4D8C4",
     accent: "#A09060",
     initials: "GPT",
+    rating: 4,
     image: "https://thedefineddish.com/wp-content/uploads/2021/04/Ginger-Peanut-Butter-Ground-Turkey-Stir-Fry-2.jpg",
   },
   {
@@ -347,6 +375,7 @@ const recipes = [
     color: "#F0DCC4",
     accent: "#C89858",
     initials: "MTB",
+    rating: 4,
     image: "https://thedefineddish.com/wp-content/uploads/2024/09/Make-Ahead-Taco-Bowls-5-scaled.jpg",
   },
   {
@@ -359,6 +388,7 @@ const recipes = [
     color: "#F5E8D4",
     accent: "#C0A468",
     initials: "CPC",
+    rating: 4,
     image: "https://torecipes.com/wp-content/uploads/2025/04/crispy-parmesan-chicken-with-a-rich-garlic-sauce-featured.png",
   },
   {
@@ -371,6 +401,7 @@ const recipes = [
     color: "#D4E0C8",
     accent: "#7A9460",
     initials: "GCS",
+    rating: 4,
     image: "https://www.halfbakedharvest.com/wp-content/uploads/2020/05/Greek-Chicken-Chopped-Salad-with-Lemon-Tahini-Vinaigrette-1.jpg",
   },
   {
@@ -383,6 +414,7 @@ const recipes = [
     color: "#F0C8C8",
     accent: "#C06060",
     initials: "SPS",
+    rating: 5,
     image: "https://natashaskitchen.com/wp-content/uploads/2018/12/Strawberry-Pretzel-Jello.jpg",
   },
 ];
@@ -677,6 +709,32 @@ export default function RecipeBook() {
                     </span>
                   </div>
                   <h3 style={styles.cardTitle}>{recipe.name}</h3>
+                  {recipe.rating && (
+                    <div style={styles.ratingRow}>
+                      {[1, 2, 3, 4, 5].map((star) => {
+                        const fill = recipe.rating >= star ? 1 : recipe.rating >= star - 0.5 ? 0.5 : 0;
+                        return (
+                          <svg key={star} width="14" height="14" viewBox="0 0 24 24" style={{ marginRight: 1 }}>
+                            {fill === 0.5 && (
+                              <defs>
+                                <linearGradient id={`half-${recipe.id}`}>
+                                  <stop offset="50%" stopColor="#C8A060" />
+                                  <stop offset="50%" stopColor="none" />
+                                </linearGradient>
+                              </defs>
+                            )}
+                            <path
+                              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                              fill={fill === 1 ? "#C8A060" : fill === 0.5 ? `url(#half-${recipe.id})` : "none"}
+                              stroke="#C8A060"
+                              strokeWidth="1.5"
+                            />
+                          </svg>
+                        );
+                      })}
+                      <span style={styles.ratingText}>{recipe.rating}</span>
+                    </div>
+                  )}
                   <div style={styles.cardTags}>
                     {recipe.tags.map((tag) => (
                       <span key={tag} style={styles.cardTag}>
@@ -782,6 +840,17 @@ const styles = {
     color: "#2A2118",
     lineHeight: 1.3,
     marginBottom: 12,
+  },
+  ratingRow: {
+    display: "flex",
+    alignItems: "center",
+    marginBottom: 10,
+  },
+  ratingText: {
+    fontSize: 12,
+    fontWeight: 500,
+    color: "#B8AE9E",
+    marginLeft: 4,
   },
   cardTags: {
     display: "flex",

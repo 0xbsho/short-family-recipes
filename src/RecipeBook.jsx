@@ -744,7 +744,7 @@ export default function RecipeBook() {
                               <defs>
                                 <linearGradient id={`half-${recipe.id}`}>
                                   <stop offset="50%" stopColor="#C8A060" />
-                                  <stop offset="50%" stopColor="none" />
+                                  <stop offset="50%" stopColor="#C8A060" stopOpacity="0" />
                                 </linearGradient>
                               </defs>
                             )}

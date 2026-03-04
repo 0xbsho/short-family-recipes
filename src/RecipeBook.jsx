@@ -550,7 +550,7 @@ export default function RecipeBook() {
       <header style={styles.header}>
         <div style={styles.headerInner}>
           <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
-            <h1 style={styles.title}>B & B's Favorite Recipes</h1>
+            <h1 style={styles.title}>B&B's Favorite Recipes</h1>
             <span style={styles.count}>{recipes.length}</span>
           </div>
           <p style={styles.subtitle}>

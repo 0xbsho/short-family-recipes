@@ -11,7 +11,7 @@ const recipes = [
     color: "#E8D5B7",
     accent: "#C4956A",
     initials: "CTS",
-    image: "https://www.halfbakedharvest.com/wp-content/uploads/2024/01/HBH-Creamy-Green-Chili-Chicken-Tortilla-Soup-1-1.jpg",
+    image: "https://www.halfbakedharvest.com/wp-content/uploads/2023/11/Creamy-Chicken-Tortilla-Soup-1.jpg",
   },
   {
     id: 2,
@@ -35,7 +35,7 @@ const recipes = [
     color: "#F0DFC8",
     accent: "#C89060",
     initials: "CTB",
-    image: "https://www.halfbakedharvest.com/wp-content/uploads/2023/09/Skillet-Corn-and-Chipotle-Chicken-Tortilla-Bake-1.jpg",
+    image: "https://www.halfbakedharvest.com/wp-content/uploads/2023/08/Skillet-Corn-and-Chipotle-Chicken-Tortilla-Bake-1.jpg",
   },
   {
     id: 4,
@@ -47,7 +47,7 @@ const recipes = [
     color: "#FBE8C8",
     accent: "#D4944C",
     initials: "HHC",
-    image: "https://www.halfbakedharvest.com/wp-content/uploads/2023/07/Sheet-Pan-Hot-Honey-Garlic-Chicken-and-Zucchini-1.jpg",
+    image: "https://www.halfbakedharvest.com/wp-content/uploads/2023/08/Sheet-Pan-Hot-Honey-Garlic-Chicken-and-Zucchini-1.jpg",
   },
   {
     id: 5,
@@ -59,7 +59,7 @@ const recipes = [
     color: "#F4D9BE",
     accent: "#D08850",
     initials: "SPS",
-    image: "https://thefirstmess.com/wp-content/uploads/2020/02/ginger-sweet-potato-coconut-stew-w-kale-lentils-3.jpg",
+    image: "https://thefirstmess.com/wp-content/uploads/2020/02/18-11996-post/ginger-sweet-potato-coconut-stew-w-kale-lentils-6.jpg",
   },
   {
     id: 6,
@@ -71,7 +71,7 @@ const recipes = [
     color: "#E5D4C0",
     accent: "#A88860",
     initials: "BBQ",
-    image: "https://40aprons.com/wp-content/uploads/2019/01/whole30-bbq-chicken-bowls-4.jpg",
+    image: "https://40aprons.com/wp-content/uploads/2020/01/bbq-chicken-bowls-whole30-5-1.jpg",
   },
   {
     id: 7,
@@ -83,7 +83,7 @@ const recipes = [
     color: "#EDE0D0",
     accent: "#A09070",
     initials: "CBR",
-    image: "https://thedefineddish.com/wp-content/uploads/2018/12/ChickenBaconRanchBowls.jpg",
+    image: "https://thedefineddish.com/wp-content/uploads/2018/07/IMG_7406.jpg",
   },
   {
     id: 8,
@@ -95,7 +95,7 @@ const recipes = [
     color: "#D8E4D2",
     accent: "#7A9968",
     initials: "GCB",
-    image: "https://thedefineddish.com/wp-content/uploads/2020/02/GreekRotisserieChickenBowls.jpg",
+    image: "https://thedefineddish.com/wp-content/uploads/2021/04/2021-04-15-01.12.12.jpg",
   },
   {
     id: 9,
@@ -107,7 +107,7 @@ const recipes = [
     color: "#F0E0C8",
     accent: "#C09058",
     initials: "GTS",
-    image: "https://www.skinnytaste.com/wp-content/uploads/2020/02/Ground-Turkey-Sweet-Potato-Skillet-5.jpg",
+    image: "https://www.skinnytaste.com/wp-content/uploads/2023/01/Ground-Turkey-Skillet-with-Sweet-Potatoes-and-Black-Beans-7.jpg",
   },
 ];
 

@@ -424,6 +424,7 @@ const allTags = [...new Set(recipes.flatMap((r) => r.tags))].sort();
 export default function RecipeBook() {
   const [search, setSearch] = useState("");
   const [activeTags, setActiveTags] = useState([]);
+  const [minRating, setMinRating] = useState(0);
 
   const toggleTag = (tag) => {
     setActiveTags((prev) =>
@@ -440,9 +441,10 @@ export default function RecipeBook() {
       const matchesTags =
         activeTags.length === 0 ||
         activeTags.some((tag) => r.tags.includes(tag));
-      return matchesSearch && matchesTags;
+      const matchesRating = minRating === 0 || (r.rating && r.rating >= minRating);
+      return matchesSearch && matchesTags && matchesRating;
     });
-  }, [search, activeTags]);
+  }, [search, activeTags, minRating]);
 
   return (
     <div style={styles.page}>
@@ -607,15 +609,38 @@ export default function RecipeBook() {
               {tag}
             </button>
           ))}
-          {activeTags.length > 0 && (
+          {(activeTags.length > 0 || minRating > 0) && (
             <button
               className="tag-btn"
-              onClick={() => setActiveTags([])}
+              onClick={() => { setActiveTags([]); setMinRating(0); }}
               style={{ color: "#C8846B", borderColor: "#C8846B" }}
             >
               Clear all
             </button>
           )}
+        </div>
+
+        {/* Star Rating Filter */}
+        <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 12 }}>
+          <span style={{ fontSize: 13, fontWeight: 500, color: "#8A7D6B", marginRight: 4 }}>Min rating:</span>
+          {[4, 4.5, 5].map((val) => (
+            <button
+              key={val}
+              className={`tag-btn ${minRating === val ? "active" : ""}`}
+              onClick={() => setMinRating(minRating === val ? 0 : val)}
+              style={{ display: "flex", alignItems: "center", gap: 4 }}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  fill={minRating === val ? "white" : "#C8A060"}
+                  stroke={minRating === val ? "white" : "#C8A060"}
+                  strokeWidth="1.5"
+                />
+              </svg>
+              {val}+
+            </button>
+          ))}
         </div>
       </div>
 

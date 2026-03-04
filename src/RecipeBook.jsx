@@ -516,11 +516,11 @@ export default function RecipeBook() {
       <header style={styles.header}>
         <div style={styles.headerInner}>
           <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
-            <h1 style={styles.title}>Our Favorite Recipes</h1>
+            <h1 style={styles.title}>B & B's Favorite Recipes</h1>
             <span style={styles.count}>{recipes.length}</span>
           </div>
           <p style={styles.subtitle}>
-            Britt and Brendan's go-to meals that we keep coming back to.
+            Britt and Brendan's go-to meals that we keep coming back to (Britt does the cooking, 99% of the time).
             Put the screens away and enjoy a meal with friends, family, or solo! 🤍
           </p>
         </div>

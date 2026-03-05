@@ -624,18 +624,9 @@ export default function RecipeBook() {
               {tag}
             </button>
           ))}
-          {(activeTags.length > 0 || minRating > 0 || sortByTime) && (
-            <button
-              className="tag-btn"
-              onClick={() => { setActiveTags([]); setMinRating(0); setSortByTime(false); }}
-              style={{ color: "#C8846B", borderColor: "#C8846B" }}
-            >
-              Clear all
-            </button>
-          )}
         </div>
 
-        {/* Sort + Rating Row */}
+        {/* Sort + Rating + Clear Row */}
         <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
           <button
             className={`tag-btn ${sortByTime ? "active" : ""}`}
@@ -657,9 +648,6 @@ export default function RecipeBook() {
             Shortest first
           </button>
 
-          <span style={{ color: "#E0D8CC", fontSize: 16, lineHeight: 1, userSelect: "none" }}>|</span>
-
-          <span style={{ fontSize: 13, fontWeight: 500, color: "#8A7D6B" }}>Min rating:</span>
           {[4, 4.5, 5].map((val) => (
             <button
               key={val}
@@ -678,6 +666,16 @@ export default function RecipeBook() {
               {val}+
             </button>
           ))}
+
+          {(activeTags.length > 0 || minRating > 0 || sortByTime) && (
+            <button
+              className="tag-btn"
+              onClick={() => { setActiveTags([]); setMinRating(0); setSortByTime(false); }}
+              style={{ color: "#C8846B", borderColor: "#C8846B" }}
+            >
+              Clear
+            </button>
+          )}
         </div>
       </div>
 

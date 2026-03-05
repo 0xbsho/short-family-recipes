@@ -555,6 +555,7 @@ export default function RecipeBook() {
           </div>
           <p style={styles.subtitle}>
             Britt and Brendan's go-to meals that we keep coming back to (Britt does the cooking, 99% of the time).
+            <br />
             Put the screens away and enjoy a meal with friends, family, or solo! 🤍
           </p>
         </div>

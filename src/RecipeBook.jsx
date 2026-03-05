@@ -565,7 +565,6 @@ export default function RecipeBook() {
         <div style={styles.headerInner}>
           <div style={{ display: "flex", alignItems: "baseline", gap: 12 }}>
             <h1 style={styles.title}>B&B's Favorite Recipes</h1>
-            <span style={styles.count}>{recipes.length}</span>
           </div>
           <p style={styles.subtitle}>
             Britt and Brendan's go-to meals that we keep coming back to (Britt does the cooking, 99% of the time).
@@ -681,6 +680,9 @@ export default function RecipeBook() {
 
       {/* Recipe Grid */}
       <div style={styles.content}>
+        <div style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 13, fontWeight: 600, color: "#8A7D6B", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 16 }}>
+          {filtered.length} Results
+        </div>
         {filtered.length === 0 ? (
           <div style={styles.empty}>
             <span style={{ fontSize: 40 }}>🍽️</span>

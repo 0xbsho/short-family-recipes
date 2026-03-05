@@ -29,7 +29,7 @@ const recipes = [
   },
   {
     id: 3,
-    name: "Corn & Chipotle Chicken Tortilla Bake",
+    name: "Skillet Corn and Chipotle Chicken Tortilla Bake",
     source: "Half Baked Harvest",
     time: "45 min",
     tags: ["Chicken", "Mexican", "Skillet"],
@@ -42,7 +42,7 @@ const recipes = [
   },
   {
     id: 4,
-    name: "Hot Honey Garlic Chicken & Zucchini",
+    name: "Sheet Pan Hot Honey Garlic Chicken and Zucchini",
     source: "Half Baked Harvest",
     time: "30 min",
     tags: ["Chicken", "Sheet Pan", "Quick"],
@@ -55,7 +55,7 @@ const recipes = [
   },
   {
     id: 5,
-    name: "Sweet Potato Coconut Milk Stew",
+    name: "Ginger Sweet Potato Coconut Milk Stew w/ Lentils & Kale",
     source: "The First Mess",
     time: "1 hr",
     tags: ["Vegan", "Soup", "Sweet Potato"],
@@ -68,7 +68,7 @@ const recipes = [
   },
   {
     id: 6,
-    name: "BBQ Chicken Bowls",
+    name: "BBQ Chicken Bowls with Sweet Potatoes and Coleslaw (Whole30)",
     source: "40 Aprons",
     time: "1 hr 15 min",
     tags: ["Bowls", "Chicken", "Sweet Potato"],
@@ -81,7 +81,7 @@ const recipes = [
   },
   {
     id: 7,
-    name: "Chicken Bacon Ranch Bowls",
+    name: "Chicken + Bacon Ranch Bowls",
     source: "The Defined Dish",
     time: "35 min",
     tags: ["Bowls", "Chicken", "Quick"],
@@ -94,7 +94,7 @@ const recipes = [
   },
   {
     id: 8,
-    name: "Greek Rotisserie Chicken Bowls",
+    name: "Easy Rotisserie Chicken Greek Bowls",
     source: "The Defined Dish",
     time: "30 min",
     tags: ["Bowls", "Chicken", "Quick"],
@@ -107,7 +107,7 @@ const recipes = [
   },
   {
     id: 9,
-    name: "Ground Turkey Skillet with Sweet Potatoes",
+    name: "Ground Turkey Skillet with Sweet Potatoes and Black Bean",
     source: "Skinnytaste",
     time: "30 min",
     tags: ["Skillet", "Turkey", "Sweet Potato", "Quick"],
@@ -120,7 +120,7 @@ const recipes = [
   },
   {
     id: 10,
-    name: "Mini Bell Pepper Loaded Turkey Nachos",
+    name: "Mini Bell Pepper Loaded Turkey \"Nachos\"",
     source: "Skinnytaste",
     time: "40 min",
     tags: ["Turkey", "Mexican", "Quick"],
@@ -185,7 +185,7 @@ const recipes = [
   },
   {
     id: 15,
-    name: "Bourbon Caramelized Bacon & Heirloom Tomato BLT",
+    name: "Bourbon Caramelized Bacon and Heirloom Tomato BLT w/Fried Eggs + Smoked Gouda",
     source: "Half Baked Harvest",
     time: "25 min",
     tags: ["Sandwich", "Quick"],
@@ -237,7 +237,7 @@ const recipes = [
   },
   {
     id: 19,
-    name: "Mexican-Style Quinoa Salad",
+    name: "6-Ingredient Mexican-Style Quinoa Salad",
     source: "Skinny Ms.",
     time: "30 min",
     tags: ["Salad", "Mexican", "Vegan", "Quick"],
@@ -250,7 +250,7 @@ const recipes = [
   },
   {
     id: 20,
-    name: "Baked Feta Pasta with Tomatoes",
+    name: "Original Baked Feta Pasta Recipe (Viral Tiktok Pasta)",
     source: "Grilled Cheese Social",
     time: "45 min",
     tags: ["Pasta", "Vegetarian"],
@@ -263,7 +263,7 @@ const recipes = [
   },
   {
     id: 21,
-    name: "Chipotle-Lime Shrimp Lettuce Cups",
+    name: "5-Ingredient Chipotle-Lime Shrimp Lettuce Cups",
     source: "The Defined Dish",
     time: "20 min",
     tags: ["Shrimp", "Quick"],
@@ -276,7 +276,7 @@ const recipes = [
   },
   {
     id: 22,
-    name: "Dutch Oven Carnitas",
+    name: "Best Dutch Oven Carnitas (Mexican Pulled Pork)",
     source: "Well Fed Baker",
     time: "4 hr",
     tags: ["Pork", "Mexican"],
@@ -315,7 +315,7 @@ const recipes = [
   },
   {
     id: 25,
-    name: "Bang Bang Shrimp",
+    name: "Whole30 Bang Bang Shrimp (Paleo, Grain Free, Nut Free)",
     source: "40 Aprons",
     time: "20 min",
     tags: ["Shrimp", "Quick"],
@@ -328,7 +328,7 @@ const recipes = [
   },
   {
     id: 26,
-    name: "Spaghetti Squash Bolognese",
+    name: "Spaghetti Squash Bolognese {Paleo, Whole30, Low FODMAP}",
     source: "Paleo Running Momma",
     time: "30 min",
     tags: ["Pasta", "Quick"],
@@ -354,7 +354,7 @@ const recipes = [
   },
   {
     id: 28,
-    name: "Ginger Peanut Butter Turkey Stir-Fry",
+    name: "Ginger and Peanut Butter Ground Turkey Stir-Fry",
     source: "The Defined Dish",
     time: "15 min",
     tags: ["Turkey", "Stir Fry", "Quick"],
@@ -367,7 +367,7 @@ const recipes = [
   },
   {
     id: 29,
-    name: "Make-Ahead Taco Bowls",
+    name: "Make-Ahead Taco Bowls with Jalapeno Dressing",
     source: "The Defined Dish",
     time: "30 min",
     tags: ["Bowls", "Mexican", "Quick"],
@@ -380,7 +380,7 @@ const recipes = [
   },
   {
     id: 30,
-    name: "Crispy Parmesan Chicken with Garlic Sauce",
+    name: "Irresistible Crispy Parmesan Chicken with Rich Garlic Sauce",
     source: "ToRecipes",
     time: "40 min",
     tags: ["Chicken"],
@@ -393,7 +393,7 @@ const recipes = [
   },
   {
     id: 31,
-    name: "Greek Chicken Chopped Salad",
+    name: "Greek Chicken Chopped Salad with Lemon Tahini Vinaigrette",
     source: "Half Baked Harvest",
     time: "45 min",
     tags: ["Salad", "Chicken"],

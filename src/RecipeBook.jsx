@@ -628,6 +628,25 @@ export default function RecipeBook() {
 
         {/* Sort + Rating + Clear Row */}
         <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
+          {[4, 4.5, 5].map((val) => (
+            <button
+              key={val}
+              className={`tag-btn ${minRating === val ? "active" : ""}`}
+              onClick={() => setMinRating(minRating === val ? 0 : val)}
+              style={{ display: "flex", alignItems: "center", gap: 4 }}
+            >
+              <svg width="12" height="12" viewBox="0 0 24 24">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                  fill={minRating === val ? "white" : "#C8A060"}
+                  stroke={minRating === val ? "white" : "#C8A060"}
+                  strokeWidth="1.5"
+                />
+              </svg>
+              {val}+
+            </button>
+          ))}
+
           <button
             className={`tag-btn ${sortByTime ? "active" : ""}`}
             onClick={() => setSortByTime((s) => !s)}
@@ -647,25 +666,6 @@ export default function RecipeBook() {
             </svg>
             Shortest first
           </button>
-
-          {[4, 4.5, 5].map((val) => (
-            <button
-              key={val}
-              className={`tag-btn ${minRating === val ? "active" : ""}`}
-              onClick={() => setMinRating(minRating === val ? 0 : val)}
-              style={{ display: "flex", alignItems: "center", gap: 4 }}
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24">
-                <path
-                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                  fill={minRating === val ? "white" : "#C8A060"}
-                  stroke={minRating === val ? "white" : "#C8A060"}
-                  strokeWidth="1.5"
-                />
-              </svg>
-              {val}+
-            </button>
-          ))}
 
           {(activeTags.length > 0 || minRating > 0 || sortByTime) && (
             <button

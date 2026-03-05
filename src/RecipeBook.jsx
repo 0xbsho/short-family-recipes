@@ -421,10 +421,20 @@ const recipes = [
 
 const allTags = [...new Set(recipes.flatMap((r) => r.tags))].sort();
 
+const parseTimeToMinutes = (timeStr) => {
+  let minutes = 0;
+  const hrMatch = timeStr.match(/(\d+)\s*hr/);
+  const minMatch = timeStr.match(/(\d+)\s*min/);
+  if (hrMatch) minutes += parseInt(hrMatch[1]) * 60;
+  if (minMatch) minutes += parseInt(minMatch[1]);
+  return minutes;
+};
+
 export default function RecipeBook() {
   const [search, setSearch] = useState("");
   const [activeTags, setActiveTags] = useState([]);
   const [minRating, setMinRating] = useState(0);
+  const [sortByTime, setSortByTime] = useState(false);
 
   const toggleTag = (tag) => {
     setActiveTags((prev) =>
@@ -433,7 +443,7 @@ export default function RecipeBook() {
   };
 
   const filtered = useMemo(() => {
-    return recipes.filter((r) => {
+    const result = recipes.filter((r) => {
       const matchesSearch =
         search === "" ||
         r.name.toLowerCase().includes(search.toLowerCase()) ||
@@ -444,7 +454,11 @@ export default function RecipeBook() {
       const matchesRating = minRating === 0 || (r.rating && r.rating >= minRating);
       return matchesSearch && matchesTags && matchesRating;
     });
-  }, [search, activeTags, minRating]);
+    if (sortByTime) {
+      return [...result].sort((a, b) => parseTimeToMinutes(a.time) - parseTimeToMinutes(b.time));
+    }
+    return result;
+  }, [search, activeTags, minRating, sortByTime]);
 
   return (
     <div style={styles.page}>
@@ -610,10 +624,10 @@ export default function RecipeBook() {
               {tag}
             </button>
           ))}
-          {(activeTags.length > 0 || minRating > 0) && (
+          {(activeTags.length > 0 || minRating > 0 || sortByTime) && (
             <button
               className="tag-btn"
-              onClick={() => { setActiveTags([]); setMinRating(0); }}
+              onClick={() => { setActiveTags([]); setMinRating(0); setSortByTime(false); }}
               style={{ color: "#C8846B", borderColor: "#C8846B" }}
             >
               Clear all
@@ -621,9 +635,31 @@ export default function RecipeBook() {
           )}
         </div>
 
-        {/* Star Rating Filter */}
-        <div style={{ display: "flex", alignItems: "center", gap: 6, marginTop: 12 }}>
-          <span style={{ fontSize: 13, fontWeight: 500, color: "#8A7D6B", marginRight: 4 }}>Min rating:</span>
+        {/* Sort + Rating Row */}
+        <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", gap: 8, marginTop: 12 }}>
+          <button
+            className={`tag-btn ${sortByTime ? "active" : ""}`}
+            onClick={() => setSortByTime((s) => !s)}
+            style={{ display: "flex", alignItems: "center", gap: 6 }}
+          >
+            <svg
+              width="13"
+              height="13"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={2}
+              style={{ flexShrink: 0 }}
+            >
+              <circle cx={12} cy={12} r={10} />
+              <path d="M12 6v6l4 2" strokeLinecap="round" />
+            </svg>
+            Shortest first
+          </button>
+
+          <span style={{ color: "#E0D8CC", fontSize: 16, lineHeight: 1, userSelect: "none" }}>|</span>
+
+          <span style={{ fontSize: 13, fontWeight: 500, color: "#8A7D6B" }}>Min rating:</span>
           {[4, 4.5, 5].map((val) => (
             <button
               key={val}
